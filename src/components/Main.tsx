@@ -1,8 +1,13 @@
-import { Box, Button, Paper, Typography } from '@mui/material';
+import { Box, Button, Paper, Typography, useMediaQuery } from '@mui/material';
 import logo from '../assets/imgs/logo_white.png';
 import React from 'react';
+import { theme } from '../styles/theme';
 
 const Main = () => {
+  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+  const isTablet = useMediaQuery(theme.breakpoints.up('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.up('sm'));
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       <Box
@@ -20,7 +25,7 @@ const Main = () => {
           component={'img'}
           src={logo}
           alt='아트모스피어 로고'
-          width={290}
+          width={isDesktop ? 400 : isMobile ? 290 : 225}
           elevation={0}
           sx={{ bgcolor: 'transparent' }}
         />

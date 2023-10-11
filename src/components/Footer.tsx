@@ -1,9 +1,14 @@
-import { Box, Button, Paper, Typography } from '@mui/material';
+import { Box, Button, Paper, Typography, useMediaQuery } from '@mui/material';
 import logo from '../assets/imgs/vertical_logo_white.png';
 import naver from '../assets/imgs/naver.png';
 import insta from '../assets/imgs/insta.png';
+import { theme } from '../styles/theme';
 
 const Footer = () => {
+  const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+  const isTablet = useMediaQuery(theme.breakpoints.up('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.up('sm'));
+
   return (
     <Box sx={{ width: '100%', height: '453px' }}>
       <Box
@@ -25,7 +30,7 @@ const Footer = () => {
           component={'img'}
           src={logo}
           alt='아트모스피어 흰색 로고'
-          height={26}
+          height={isDesktop ? 26 : isMobile ? 22 : 12}
           elevation={0}
           sx={{ bgcolor: 'transparent' }}
         />
